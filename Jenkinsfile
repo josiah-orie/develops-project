@@ -57,7 +57,7 @@ pipeline {
     }
     post {
         success {
-            echo 'Project completed successfully.'
+            echo 'Pipeline executed successfully.'
         }
         failure{
             echo 'Docker image build or Push failed'
