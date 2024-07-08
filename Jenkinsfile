@@ -45,13 +45,13 @@ pipeline {
         stage("Pulling Docker Image"){
             steps{
                 echo 'pulling image from repo'
-                sh 'sudo docker pull jossy10/develops-project:0.0.${BUILD_NUMBER}'
+                sh 'docker pull jossy10/develops-project:0.0.${BUILD_NUMBER}'
             }
         }
         stage("Deploying Docker Container"){
             steps{
                 echo 'running docker container'
-                sh 'sudo docker run -d --name devops-project -p 9090:4040 ${DOCKER_REPO}:0.0.${BUILD_NUMBER}'
+                sh 'docker run -d --name devops-project -p 9090:4040 ${DOCKER_REPO}:0.0.${BUILD_NUMBER}'
             }
         }
     }
