@@ -34,7 +34,12 @@ pipeline {
         stage('Push Docker Image'){
             steps{
                 echo 'pushing image to docker hub coming in next build ...'
-                sh 'docker push jossy10/develops-project:0.0.${BUILD_NUMBER}'     
+                script{
+                    // This step should not normally be used in your script. Consult the inline help for details.
+                    withDockerRegistry(credentialsId: '5e1d87df-37f3-43fb-9856-44d0916453bf', toolName: 'myDocker') {
+                        sh 'docker push jossy10/develops-project:0.0.${BUILD_NUMBER}'
+                    }
+                }
             }
         }
         stage("Pulling Docker Image"){
