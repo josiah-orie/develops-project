@@ -24,11 +24,11 @@ FROM openjdk:17-jdk-alpine
 WORKDIR /app
 
 # Copy the jar file from the build stage
-COPY --from=build /app/target/docker-jenkins-project-test-0.0.1-SNAPSHOT.jar /app/docker-jenkins-project-test-0.0.1-SNAPSHOT.jar
+COPY --from=build /app/target/develops-project-0.0.1-SNAPSHOT.jar /app/develops-project-0.0.1-SNAPSHOT.jar
 
 # Make port 4000 available to the world outside this container
 EXPOSE 4000
 
 # Run the JAR file
-ENTRYPOINT ["java", "-jar", "/app/simpliearn-devops-project-test-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "/app/develops-project-0.0.1-SNAPSHOT.jar"]
 
