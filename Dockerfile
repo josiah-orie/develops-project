@@ -27,7 +27,7 @@ WORKDIR /app
 COPY --from=build /app/target/develops-project-0.0.1-SNAPSHOT.jar /app/develops-project-0.0.1-SNAPSHOT.jar
 
 # Make port 4000 available to the world outside this container
-EXPOSE 4000
+EXPOSE 4040
 
 # Run the JAR file
 ENTRYPOINT ["java", "-jar", "/app/develops-project-0.0.1-SNAPSHOT.jar"]
