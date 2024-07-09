@@ -9,14 +9,14 @@ pipeline {
     
     stages {
         
-        stage('Compile & Packaging Project') {
+        stage('Compiling Project') {
             steps {
                 // Run Maven on a Unix agent.
                 // sh "mvn -Dmaven.test.failure.ignore=true clean package"
                 sh 'mvn compile'
             }
         }
-        stage('Build Docker Image'){
+        stage('Packaging & Build Docker Image'){
             steps{
                 echo 'Building project docker image  ...'
                 //sh 'docker build -t ${DOCKER_REPO}:0.0.${BUILD_NUMBER} .'
