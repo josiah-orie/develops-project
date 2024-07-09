@@ -51,7 +51,6 @@ pipeline {
         stage("Deploying Docker Container"){
             steps{
                 echo 'running docker container'
-                sh 'docker rm devops-project'
                 sh 'docker run -d --name devops-project -p 9090:4040 ${DOCKER_REPO}:0.0.${BUILD_NUMBER}'
             }
         }
